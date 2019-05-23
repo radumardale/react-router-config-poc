@@ -3,7 +3,7 @@ import { renderRoutes } from 'react-router-config';
 import { NavLink } from 'react-router-dom';
 
 export default props => {
-  console.log('props = ', props);
+  const [isAuthenticated, toggleIsAuthenticated] = React.useState(true);
   return (
     <section>
       <header>
@@ -12,12 +12,23 @@ export default props => {
           <NavLink to="/" exact activeClassName="selected-link">
             Home
           </NavLink>
-          <NavLink to="/app" exact activeClassName="selected-link">
+          <NavLink to="/app" activeClassName="selected-link">
             Secured section
           </NavLink>
+          <span>
+            <input
+              id="isAuthenticated"
+              type="checkbox"
+              checked={isAuthenticated}
+              onChange={e => {
+                toggleIsAuthenticated(!isAuthenticated);
+              }}
+            />
+            <label htmlFor="isAuthenticated">is authenticated</label>
+          </span>
         </nav>
       </header>
-      <div>{renderRoutes(props.route.routes)}</div>
+      <div>{renderRoutes(props.route.routes, { isAuthenticated })}</div>
     </section>
   );
 };

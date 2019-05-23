@@ -10,7 +10,8 @@
     "react-router": "5.0.0",
     "react-router-config": "5.0.0",
     "react-router-dom": "5.0.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "devDependencies": {
     "typescript": "3.3.3"
