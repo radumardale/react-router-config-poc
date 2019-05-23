@@ -1,25 +1,21 @@
-import Root from "./components/root";
-import Home from "./components/home";
-import Child from "./components/child";
+import Root from './components/root';
+import Home from './components/public/home';
+// import Child from './components/public/child';
+import SecuredPage from './components/secured/securedPage';
 
 const routes = [
   {
     component: Root,
     routes: [
       {
-        path: "/",
+        path: '/',
         exact: true,
         component: Home
       },
       {
-        path: "/child/:id",
-        component: Child
-        // routes: [
-        //   {
-        //     path: "/child/:id/grand-child",
-        //     component: GrandChild
-        //   }
-        // ]
+        path: '/app',
+        exact: true,
+        component: SecuredPage
       }
     ]
   }
